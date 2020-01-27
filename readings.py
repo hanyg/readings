@@ -7,7 +7,7 @@ logger = logging.getLogger("readings")
 
 app = Bottle()
 
-app.install(SQLitePlugin(dbfile="/home/hany/readings.db"))
+app.install(SQLitePlugin(dbfile="./readings.db"))
 
 @app.error(404)
 @view("error404")
@@ -116,7 +116,7 @@ def do_add(db):
 @app.route("/edit/static/<filename:path>")
 @app.route("/static/<filename:path>")
 def serve_static(filename):
-    return static_file(filename, root="/home/hany/views/")
+    return static_file(filename, root="./views/")
 
 
 #@app.route('/')
